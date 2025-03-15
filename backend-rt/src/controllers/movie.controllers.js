@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import Movie from "../models/movie.model.js";
+import User from "../models/user.model.js";
 
 class Movies {
   async createMovie(req, res) {
