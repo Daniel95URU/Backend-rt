@@ -37,4 +37,24 @@ router.get('/searchMulti', Movie.searchMulti.bind(Movie));
 router.delete('/removeFromWatchlist', Movie.removeFromWatchlist.bind(Movie));
 router.get('/discoverMovies', Movie.discoverMovies.bind(Movie))
 
+// Series 
+router.post('/createSeries', Series.saveSeries.bind(Series));
+router.post('/addToWatchlistSeries', Series.addToWatchlist.bind(Series));
+router.post('/addLastSeenSeries', Series.addLastSeen.bind(Series));
+router.get('/watchlistSeries/:personId', Series.getWatchlist.bind(Series));
+router.get('/lastSeenSeries/:personId', Series.getLastSeen.bind(Series));
+router.get('/popularSeries', Series.getPopularSeries.bind(Series));
+router.get('/topRatedSeries', Series.getTopRatedSeries.bind(Series));
+router.get('/actionAdventureSeries', Series.getActionAdventureSeries.bind(Series));
+router.get('/animationSeries', Series.getAnimationSeries.bind(Series));
+router.get('/dramaSeries', Series.getDramaSeries.bind(Series));
+router.get('/comedySeries', Series.getComedySeries.bind(Series));
+router.get('/getSeriesByIdAndTitle/:seriesId/:title', Series.getSeriesByIdAndTitle.bind(Series));
+router.post('/updateLastSeenSeries', Series.updateLastSeen.bind(Series)); 
+router.delete('/removeFromWatchlistSeries', Series.removeFromWatchlist.bind(Series)); 
+router.get('/isSeriesInLastSeen/:userId/:seriesId', Series.isSeriesInLastSeen.bind(Series)); 
+router.get('/getSeriesById/:id', Series.getSeriesById.bind(Series));
+router.get('/getUpcomingPopularSeries', Series.getUpcomingPopularSeries.bind(Series));
+router.delete('/removeFromWatchlistSeries', Series.removeFromWatchlist.bind(Series)); 
+
 export default router;
