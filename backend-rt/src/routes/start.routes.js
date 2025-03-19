@@ -57,4 +57,16 @@ router.get('/getSeriesById/:id', Series.getSeriesById.bind(Series));
 router.get('/getUpcomingPopularSeries', Series.getUpcomingPopularSeries.bind(Series));
 router.delete('/removeFromWatchlistSeries', Series.removeFromWatchlist.bind(Series)); 
 
+// Reseñas
+router.post('/createReview', ReviewController.createReview.bind(ReviewController));
+router.get('/reviews', ReviewController.getReviews.bind(ReviewController));
+router.get('/review/:reviewId', ReviewController.getReviewById.bind(ReviewController));
+router.get('/reviews/movie/:movieId', ReviewController.getReviews.bind(ReviewController)); 
+router.get('/reviews/series/:seriesId', ReviewController.getReviews.bind(ReviewController)); 
+router.get('/reviews/author/:authorId', ReviewController.getReviewAuthor.bind(ReviewController));
+router.put('/review/:reviewId', ReviewController.updateReview.bind(ReviewController));
+router.delete('/review/:reviewId', ReviewController.deleteReview.bind(ReviewController));
+router.get('/reviews/author/:authorId/movie/:movieId', ReviewController.getReviewsByAuthorAndItem.bind(ReviewController));
+router.get('/reviews/author/:authorId/series/:seriesId', ReviewController.getReviewsByAuthorAndItem.bind(ReviewController)); 
+
 export default router;

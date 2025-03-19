@@ -59,6 +59,7 @@ const seriesSchema = new mongoose.Schema({
   }
 }, {
   timestamps: true
+  
 });
 
 const SeriesModel = mongoose.model('Series', seriesSchema);
