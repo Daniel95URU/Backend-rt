@@ -63,5 +63,4 @@ const seriesSchema = new mongoose.Schema({
 });
 
 const SeriesModel = mongoose.model('Series', seriesSchema);
-
 export default SeriesModel;

@@ -1,6 +1,8 @@
 import express from 'express';
 import { register, createLogin, resetPassword, checkResetToken, savePassword, eraseAccount,getUserInfoById } from '../controllers/auth.controllers.js';
 import Movie from '../controllers/movie.controllers.js'; 
+import Series from '../controllers/series.controllers.js'
+import ReviewController from '../controllers/review.controllers.js';
 
 const router = express.Router();
 

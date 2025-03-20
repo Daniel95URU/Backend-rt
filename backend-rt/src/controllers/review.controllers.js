@@ -190,7 +190,7 @@ class ReviewController {
       res.status(500).json({ message: 'Error al eliminar la reseña'});
     }
   }
-} // Probar los elementos del CRUD de reseñas
+} 
 
 
 export default new ReviewController();

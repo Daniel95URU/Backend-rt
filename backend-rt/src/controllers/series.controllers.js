@@ -275,22 +275,22 @@ async removeFromWatchlist(req, res) {
   }
 
 
-  // async getWatchlist(req, res) {
-  //   const { personId } = req.params;
+  async getWatchlist(req, res) {
+    const { personId } = req.params;
 
-  //   try {
-  //     const user = await User.findById(personId).populate("watchlistSeries");
+    try {
+      const user = await User.findById(personId).populate("watchlistSeries");
 
-  //     if (!user) {
-  //       return res.status(404).json({ message: "Usuario no encontrado" });
-  //     }
+      if (!user) {
+        return res.status(404).json({ message: "Usuario no encontrado" });
+      }
 
-  //     res.status(200).json({ watchlistSeries: user.watchlistSeries });
-  //   } catch (error) {
-  //     console.error("Error al obtener la lista de ver más tarde:", error);
-  //     res.status(500).json({ message: "EError al obtener la lista de ver más tarde", error: error.message });
-  //   }
-  // }
+      res.status(200).json({ watchlistSeries: user.watchlistSeries });
+    } catch (error) {
+      console.error("Error al obtener la lista de ver más tarde:", error);
+      res.status(500).json({ message: "EError al obtener la lista de ver más tarde", error: error.message });
+    }
+  }
 
 
   async getLastSeen(req, res) {
@@ -362,82 +362,82 @@ async removeFromWatchlist(req, res) {
     }
   }
 
-//   async getTopRatedSeries(req, res) {
-//     const url =
-//       "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1";
-//     const options = {
-//       method: "GET",
-//       headers: {
-//         accept: "application/json",
-//         Authorization:
-//           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDZhMWU5Y2NkMTZmZjliYmRmZTZiNmVmNjhiYzAxYyIsIm5iZiI6MTczMjM2MzA0NC4wMjA3NTQsInN1YiI6IjY3MjZlZGY4NTU0MDgzYTU2YTBkNWQ0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A36jP2inD2g3vtF4S9laLNNkF9YL0RW867OXvK1G_Nc",
-//       },
-//     };
+  async getTopRatedSeries(req, res) {
+    const url =
+      "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1";
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDZhMWU5Y2NkMTZmZjliYmRmZTZiNmVmNjhiYzAxYyIsIm5iZiI6MTczMjM2MzA0NC4wMjA3NTQsInN1YiI6IjY3MjZlZGY4NTU0MDgzYTU2YTBkNWQ0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A36jP2inD2g3vtF4S9laLNNkF9YL0RW867OXvK1G_Nc",
+      },
+    };
 
-//     try {
-//       const response = await fetch(url, options);
-//       const data = await response.json();
-//       res.status(200).json(data);
-//     } catch (error) {
-//       console.error("Error al obtener las series de televisión mejor valoradas:", error);
-//       res
-//         .status(500)
-//         .json({
-//           message: "Error al obtener las series de televisión mejor valoradas",
-//           error: error.message,
-//         });
-//     }
-//   }
-// // Por categorías
-//   async getActionAdventureSeries(req, res) {
-//     const url =
-//       "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=10759";
-//     const options = {
-//       method: "GET",
-//       headers: {
-//         accept: "application/json",
-//         Authorization:
-//           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDZhMWU5Y2NkMTZmZjliYmRmZTZiNmVmNjhiYzAxYyIsIm5iZiI6MTczMjM2MzA0NC4wMjA3NTQsInN1YiI6IjY3MjZlZGY4NTU0MDgzYTU2YTBkNWQ0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A36jP2inD2g3vtF4S9laLNNkF9YL0RW867OXvK1G_Nc",
-//       },
-//     };
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      res.status(200).json(data);
+    } catch (error) {
+      console.error("Error al obtener las series de televisión mejor valoradas:", error);
+      res
+        .status(500)
+        .json({
+          message: "Error al obtener las series de televisión mejor valoradas",
+          error: error.message,
+        });
+    }
+  }
+// Por categorías
+  async getActionAdventureSeries(req, res) {
+    const url =
+      "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=10759";
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDZhMWU5Y2NkMTZmZjliYmRmZTZiNmVmNjhiYzAxYyIsIm5iZiI6MTczMjM2MzA0NC4wMjA3NTQsInN1YiI6IjY3MjZlZGY4NTU0MDgzYTU2YTBkNWQ0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A36jP2inD2g3vtF4S9laLNNkF9YL0RW867OXvK1G_Nc",
+      },
+    };
 
-//     try {
-//       const response = await fetch(url, options);
-//       const data = await response.json();
-//       res.status(200).json(data);
-//     } catch (error) {
-//       console.error("Error al obtener las series de TV de acción: ", error);
-//       res
-//         .status(500)
-//         .json({
-//           message: "Error al obtener las series de TV de acción",
-//           error: error.message,
-//         });
-//     }
-//   }
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      res.status(200).json(data);
+    } catch (error) {
+      console.error("Error al obtener las series de TV de acción: ", error);
+      res
+        .status(500)
+        .json({
+          message: "Error al obtener las series de TV de acción",
+          error: error.message,
+        });
+    }
+  }
 
-//   async getAnimationSeries(req, res) {
-//     const url = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=16';
-//     const options = {
-//       method: 'GET',
-//       headers: {
-//         accept: 'application/json',
-//         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDZhMWU5Y2NkMTZmZjliYmRmZTZiNmVmNjhiYzAxYyIsIm5iZiI6MTczMjM2MzA0NC4wMjA3NTQsInN1YiI6IjY3MjZlZGY4NTU0MDgzYTU2YTBkNWQ0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A36jP2inD2g3vtF4S9laLNNkF9YL0RW867OXvK1G_Nc'
-//       }
-//     };
+  async getAnimationSeries(req, res) {
+    const url = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=16';
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNDZhMWU5Y2NkMTZmZjliYmRmZTZiNmVmNjhiYzAxYyIsIm5iZiI6MTczMjM2MzA0NC4wMjA3NTQsInN1YiI6IjY3MjZlZGY4NTU0MDgzYTU2YTBkNWQ0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A36jP2inD2g3vtF4S9laLNNkF9YL0RW867OXvK1G_Nc'
+      }
+    };
   
-//     try {
-//       const response = await fetch(url, options);
-//       const data = await response.json();
-//       res.status(200).json(data);
-//     } catch (error) {
-//       console.error("Error al obtener las series de TV animadas:", error);
-//       res.status(500).json({
-//         message: "Error al obtener las series de TV animadas ",
-//         error: error.message,
-//       });
-//     }
-//   }
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      res.status(200).json(data);
+    } catch (error) {
+      console.error("Error al obtener las series de TV animadas:", error);
+      res.status(500).json({
+        message: "Error al obtener las series de TV animadas ",
+        error: error.message,
+      });
+    }
+  }
 
   async getDramaSeries(req, res) {
     const url =
